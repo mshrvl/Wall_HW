@@ -34,7 +34,7 @@ object WallService {
     }
 }
 
-}
+
 fun main() {}
 
 fun add(post: Post) {
@@ -43,4 +43,3 @@ fun add(post: Post) {
 }
 
 
-}
