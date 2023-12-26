@@ -1,5 +1,5 @@
 data class Post(
-    val id: Int,               // Добавлено свойство id для идентификации поста
+    val id: Int,
     val reposts: Int,
     val owner_id: Int,
     val date: Int,
@@ -25,7 +25,7 @@ object WallService {
     private var posts = emptyArray<Post>()
 
     fun add(post: Post): Post {
-        val newPost = post.copy(id = generateId())  // Присваиваем уникальный id новому посту
+        val newPost = post.copy(id = generateId())
         posts += newPost
         return newPost
     }
@@ -40,7 +40,7 @@ object WallService {
     fun update(post: Post): Boolean {
         for ((index, existingPost) in posts.withIndex()) {
             if (existingPost.id == post.id) {
-                posts[index] = post.copy()  // Обновляем существующий пост с новыми данными
+                posts[index] = post.copy()
                 return true
             }
         }
@@ -49,12 +49,11 @@ object WallService {
 }
 
 fun main() {
-    val post = Post(0, 0, 2, 11, "TEST", true, 4, true, true, true, false)
+    val post = Post(0, 0, 2, 12, "TEST", true, 4, true, true, true, false)
     val likesInfo = Likes.LikesInfo(10, true, true, true)
     val newPost = WallService.add(post.copy())
     println("Post added with ID: ${newPost.id}")
 
-    // Пример обновления поста
     val updatedPost = newPost.copy(text = "Updated Text")
     if (WallService.update(updatedPost)) {
         println("Post updated successfully")
