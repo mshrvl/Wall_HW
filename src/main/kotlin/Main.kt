@@ -1,15 +1,15 @@
 data class Post(
     val id: Int,
     val reposts: Int,
-    val owner_id: Int,
+    val ownerId: Int,
     val date: Int,
     val text: String,
-    val friend_only: Boolean,
-    val signer_id: Int,
-    val can_pin: Boolean,
-    val can_delete: Boolean,
-    val can_edit: Boolean,
-    val is_favourite: Boolean
+    val friendOnly: Boolean,
+    val signerId: Int,
+    val canPin: Boolean,
+    val canDelete: Boolean,
+    val canEdit: Boolean,
+    val isFavourite: Boolean
 )
 
 object Likes {
@@ -23,6 +23,11 @@ object Likes {
 
 object WallService {
     private var posts = emptyArray<Post>()
+
+    fun clear() {
+        posts = emptyArray()
+        id = 0
+    }
 
     fun add(post: Post): Post {
         val newPost = post.copy(id = generateId())
