@@ -13,7 +13,7 @@ class WallServiceTest {
     fun addingPostShouldHaveNonZeroId() {
         val post = Post(0, 0, 2, 12, "T1", true, 4, true, true, true, false)
         val newPost = WallService.add(post.copy())
-        assertTrue(newPost.id > 0)
+        assertTrue(newPost.id > 1)
     }
 
     @Test
