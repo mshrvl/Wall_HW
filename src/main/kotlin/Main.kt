@@ -54,7 +54,6 @@ object WallService {
 
 fun main() {
     val post = Post(0, 0, 2, 12, "T1", true, 4, true, true, true, false)
-    val likesInfo = Likes.LikesInfo(10, true, true, true)
     val newPost = WallService.add(post.copy())
     println("Post added with ID: ${newPost.id}")
 
