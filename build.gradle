@@ -15,10 +15,6 @@ dependencies {
     implementation'org.jetbrains.kotlin:kotlin-stdlib'
 }
 
-test {
-    useJUnitPlatform()
-}
-
 compileKotlin {
     kotlinOptions.jvmTarget = '1.8'
 }

@@ -23,6 +23,7 @@ object Likes {
 
 object WallService {
     private var posts = emptyArray<Post>()
+    private var id = 0
 
     fun clear() {
         posts = emptyArray()
@@ -35,9 +36,7 @@ object WallService {
         return newPost
     }
 
-    private var id = 0
-
-    fun generateId(): Int {
+    private fun generateId(): Int {
         id++
         return id
     }
@@ -54,7 +53,7 @@ object WallService {
 }
 
 fun main() {
-    val post = Post(0, 0, 2, 12, "TEST", true, 4, true, true, true, false)
+    val post = Post(0, 0, 2, 12, "T1", true, 4, true, true, true, false)
     val likesInfo = Likes.LikesInfo(10, true, true, true)
     val newPost = WallService.add(post.copy())
     println("Post added with ID: ${newPost.id}")
