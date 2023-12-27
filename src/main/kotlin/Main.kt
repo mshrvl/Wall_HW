@@ -1,14 +1,32 @@
+interface Attachment {
+    val type: String
+}
+
+data class Photo(val id: Int, val ownerId: Int, val description: String)
+
+data class Audio(val id: Int, val ownerId: Int, val duration: Int)
+
+data class Video(val id: Int, val ownerId: Int, val duration: Int, val addingDate: Int)
+
+data class PhotoAttachment(override val type: String, val photo: Photo) : Attachment
+
+data class AudioAttachment(override val type: String, val audio: Audio) : Attachment
+
+data class VideoAttachment(override val type: String, val video: Video) : Attachment
+
+
+
 data class Post(
     val id: Int,
     val reposts: Int,
     val ownerId: Int,
     val date: Int,
-    val text: String,
-    val friendOnly: Boolean?,
-    val signerId: Int,
+    val text: String?,
+    val friendOnly: Boolean,
+    val signerId: Int?,
     val canPin: Boolean,
-    val canDelete: Boolean?,
-    val canEdit: Boolean?,
+    val canDelete: Boolean,
+    val canEdit: Boolean,
     val isFavourite: Boolean,
     val likesInfo: Likes.LikesInfo = Likes.LikesInfo(0, false, false, false)
 )
@@ -18,7 +36,7 @@ object Likes {
         val count: Int,
         val userLikes: Boolean,
         val canLike: Boolean,
-        val canPublish: Boolean,
+        val canPublish: Boolean
     )
 }
 
@@ -58,7 +76,7 @@ fun main() {
     val newPost = WallService.add(post.copy())
     println("Post added with ID: ${newPost.id}")
 
-    val updatedPost = newPost.copy(text = "Updated Text")
+    val updatedPost = newPost.copy(text = null, signerId = null)
     if (WallService.update(updatedPost)) {
         println("Post updated successfully")
     } else {
