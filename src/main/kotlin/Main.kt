@@ -9,7 +9,8 @@ data class Post(
     val canPin: Boolean,
     val canDelete: Boolean,
     val canEdit: Boolean,
-    val isFavourite: Boolean
+    val isFavourite: Boolean,
+    val likesInfo: Likes.LikesInfo = Likes.LikesInfo(0, false, false, false)
 )
 
 object Likes {
