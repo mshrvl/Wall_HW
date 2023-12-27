@@ -4,11 +4,11 @@ data class Post(
     val ownerId: Int,
     val date: Int,
     val text: String,
-    val friendOnly: Boolean,
+    val friendOnly: Boolean?,
     val signerId: Int,
     val canPin: Boolean,
-    val canDelete: Boolean,
-    val canEdit: Boolean,
+    val canDelete: Boolean?,
+    val canEdit: Boolean?,
     val isFavourite: Boolean,
     val likesInfo: Likes.LikesInfo = Likes.LikesInfo(0, false, false, false)
 )
