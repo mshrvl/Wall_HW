@@ -8,11 +8,20 @@ data class Audio(val id: Int, val ownerId: Int, val duration: Int)
 
 data class Video(val id: Int, val ownerId: Int, val duration: Int, val addingDate: Int)
 
-data class PhotoAttachment(override val type: String, val photo: Photo) : Attachment
+data class File(val id: Int,  val ownerId: Int, val ext: String, val width: Int)
 
-data class AudioAttachment(override val type: String, val audio: Audio) : Attachment
+data class Sticker (val productId: Int, val animationUrl: String)
 
-data class VideoAttachment(override val type: String, val video: Video) : Attachment
+data class photoAttachment(override val type: String, val photo: Photo) : Attachment
+
+data class audioAttachment(override val type: String, val audio: Audio) : Attachment
+
+data class videoAttachment(override val type: String, val video: Video) : Attachment
+
+data class fileAttachment(override val type: String, val file: File): Attachment
+
+data class stickerAttachment(override val type: String, val sticker: Sticker): Attachment
+
 
 
 
