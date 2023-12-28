@@ -37,7 +37,8 @@ data class Post(
     val canDelete: Boolean,
     val canEdit: Boolean,
     val isFavourite: Boolean,
-    val likesInfo: Likes.LikesInfo = Likes.LikesInfo(0, false, false, false)
+    val likesInfo: Likes.LikesInfo = Likes.LikesInfo(0, false, false, false),
+    val attachments: Array<Attachment> = emptyArray()
 )
 
 object Likes {
